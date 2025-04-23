@@ -16,11 +16,15 @@ namespace MissionPlanner.Maps
         SizeF txtsize = SizeF.Empty;
         static Dictionary<string, Bitmap> fontBitmaps = new Dictionary<string, Bitmap>();
         static Font font;
+        private static Bitmap icon = new Bitmap("C:\\Users\\sean1\\OneDrive\\桌面\\GitHub\\others\\MissionPlanner\\Resources\\images\\wp_waypoint.png");
 
         public GMapMarkerWP(PointLatLng p, string wpno)
-            : base(p, GMarkerGoogleType.green)
+            : base(p, icon)
         {
             this.wpno = wpno;
+
+            // Set the offset to center the marker
+            Offset = new Point(-icon.Width / 2, -icon.Height / 2);
             if (font == null)
                 font = SystemFonts.DefaultFont;
 
@@ -49,8 +53,11 @@ namespace MissionPlanner.Maps
             
             base.OnRender(g);
 
+            //var midw = LocalPosition.X + 10;
+            //var midh = LocalPosition.Y + 3;
+
             var midw = LocalPosition.X + 10;
-            var midh = LocalPosition.Y + 3;
+            var midh = LocalPosition.Y - icon.Height / 2;
 
             if (txtsize.Width > 15)
                 midw -= 4;

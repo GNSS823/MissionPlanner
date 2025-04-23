@@ -389,7 +389,10 @@ namespace MissionPlanner.ArduPilot
                 GMapMarker m = null;                
                 if(type == MAVLink.MAV_MISSION_TYPE.MISSION)
                 {
-                    m = new GMapMarkerWP(point, tag);
+                    if (tag == "H")
+                        m = new GMapMarkerHomeWP(point);
+                    else
+                       m = new GMapMarkerWP(point, tag);
                     if (alt.HasValue)
                     {
                         m.ToolTipMode = MarkerTooltipMode.OnMouseOver;
