@@ -656,7 +656,13 @@ namespace MissionPlanner
             LoadConfig();
 
             // force language to be loaded
-            L10N.GetConfigLang();
+            //L10N.GetConfigLang();
+
+            // force language to use english if not set
+            if (Settings.Instance["language"] == null)
+            {
+                Settings.Instance["language"] = "en";
+            }
 
             ShowAirports = true;
 
@@ -699,25 +705,6 @@ namespace MissionPlanner
 
             InitializeComponent();
 
-            //Init Theme table and load BurntKermit as a default
-            ThemeManager.thmColor = new ThemeColorTable(); //Init colortable
-            ThemeManager.thmColor.InitColors(); //This fills up the table with BurntKermit defaults.
-            ThemeManager.thmColor
-                .SetTheme(); //Set the colors, this need to handle the case when not all colors are defined in the theme file
-
-
-
-            if (Settings.Instance["theme"] == null)
-            {
-                if (File.Exists($"{running_directory}custom.mpsystheme"))
-                    Settings.Instance["theme"] = "custom.mpsystheme";
-                else
-                    Settings.Instance["theme"] = "BurntKermit.mpsystheme";
-            }
-
-            ThemeManager.LoadTheme(Settings.Instance["theme"]);
-
-            Utilities.ThemeManager.ApplyThemeTo(this);
 
 
             // define default basestream
@@ -912,6 +899,27 @@ namespace MissionPlanner
                     DisplayConfiguration = DisplayConfiguration.Advanced();
                 }
             }
+
+
+            //Init Theme table and load BurntKermit as a default
+            ThemeManager.thmColor = new ThemeColorTable(); //Init colortable
+            ThemeManager.thmColor.InitColors(); //This fills up the table with BurntKermit defaults.
+
+
+            // force Setting.Instance = custom.mpsystheme
+            Settings.Instance["theme"] = "custom.mpsystheme";
+            //if (Settings.Instance["theme"] == null)
+            //{
+            //    if (File.Exists($"{running_directory}custom.mpsystheme"))
+            //        Settings.Instance["theme"] = "custom.mpsystheme";
+            //    else
+            //        Settings.Instance["theme"] = "BurntKermit.mpsystheme";
+            //}
+
+            ThemeManager.LoadTheme(Settings.Instance["theme"]);
+            Utilities.ThemeManager.ApplyThemeTo(this);
+            ThemeManager.thmColor.SetTheme(); //Set the colors, this need to handle the case when not all colors are defined in the theme file
+
 
             LayoutChanged += updateLayout;
             LayoutChanged(null, EventArgs.Empty);
@@ -1159,9 +1167,9 @@ namespace MissionPlanner
 
             displayicons = icons;
 
-            MainMenu.BackColor = SystemColors.MenuBar;
+            MainMenu.BackColor = ColorTranslator.FromHtml("#0e223f");// SystemColors.MenuBar;
 
-            MainMenu.BackgroundImage = displayicons.bg;
+            //MainMenu.BackgroundImage = displayicons.bg;
 
             MenuFlightData.Image = displayicons.fd;
             MenuFlightPlanner.Image = displayicons.fp;
@@ -1170,15 +1178,16 @@ namespace MissionPlanner
             MenuConfigTune.Image = displayicons.config_tuning;
             MenuConnect.Image = displayicons.connect;
             MenuHelp.Image = displayicons.help;
+            _connectionControl.BackgroundImage = null;
 
 
-            MenuFlightData.ForeColor = ThemeManager.TextColor;
-            MenuFlightPlanner.ForeColor = ThemeManager.TextColor;
-            MenuInitConfig.ForeColor = ThemeManager.TextColor;
-            MenuSimulation.ForeColor = ThemeManager.TextColor;
-            MenuConfigTune.ForeColor = ThemeManager.TextColor;
-            MenuConnect.ForeColor = ThemeManager.TextColor;
-            MenuHelp.ForeColor = ThemeManager.TextColor;
+            //MenuFlightData.ForeColor = ThemeManager.TextColor;
+            //MenuFlightPlanner.ForeColor = ThemeManager.TextColor;
+            //MenuInitConfig.ForeColor = ThemeManager.TextColor;
+            //MenuSimulation.ForeColor = ThemeManager.TextColor;
+            //MenuConfigTune.ForeColor = ThemeManager.TextColor;
+            //MenuConnect.ForeColor = ThemeManager.TextColor;
+            //MenuHelp.ForeColor = ThemeManager.TextColor;
         }
 
         void adsb_UpdatePlanePosition(object sender, MissionPlanner.Utilities.adsb.PointLatLngAltHdg adsb)
@@ -4005,6 +4014,9 @@ namespace MissionPlanner
 
         private void checkupdate(object stuff)
         {
+            // Disable check update
+            log.Info("Disable check update by Advanced Tactical Director");
+            return;
             if (Program.WindowsStoreApp)
                 return;
 
@@ -4611,7 +4623,7 @@ namespace MissionPlanner
                     try
                     {
                         item.BackColor = Color.Transparent;
-                        item.BackgroundImage = displayicons.bg; //.BackColor = Color.Black;
+                        //item.BackgroundImage = displayicons.bg; //.BackColor = Color.Black;
                     }
                     catch
                     {
@@ -4796,16 +4808,6 @@ namespace MissionPlanner
                     break;
                 }
             }
-        }
-
-        private void toolStripConnectionControl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MainV2_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

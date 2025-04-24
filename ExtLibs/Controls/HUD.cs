@@ -278,7 +278,7 @@ namespace MissionPlanner.Controls
         {
             log.Info("HUD Dispose");
 
-            if (opengl)
+            if (opengl && disposing)
             {
                 foreach (character texid in _texture)
                 {
@@ -290,7 +290,7 @@ namespace MissionPlanner.Controls
 
                 foreach (character texid in charDict.Values)
                 {
-                    if (texid.gltextureid != 0)
+                    if (texid != null && texid.gltextureid != 0)
                         GL.DeleteTexture(texid.gltextureid);
                 }
             }
@@ -984,10 +984,14 @@ namespace MissionPlanner.Controls
             set { _groundColor2 = value; }
         }
 
-        private Color _skyColor1 = Color.Blue;
-        private Color _skyColor2 = Color.LightBlue;
-        private Color _groundColor1 = Color.FromArgb(0x9b, 0xb8, 0x24);
-        private Color _groundColor2 = Color.FromArgb(0x41, 0x4f, 0x07);
+        private Color _skyColor1 = ColorTranslator.FromHtml("#006486");
+        private Color _skyColor2 = ColorTranslator.FromHtml("#0093b4");
+        private Color _groundColor1 = ColorTranslator.FromHtml("#004b63");
+        private Color _groundColor2 = ColorTranslator.FromHtml("#006e84");
+        //private Color _skyColor1 = Color.Blue;
+        //private Color _skyColor2 = Color.LightBlue;
+        //private Color _groundColor1 = Color.FromArgb(0x9b, 0xb8, 0x24);
+        //private Color _groundColor2 = Color.FromArgb(0x41, 0x4f, 0x07);
 
         private Color _hudcolor = Color.White;
         private Pen _whitePen = new Pen(Color.White, 2);

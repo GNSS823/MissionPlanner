@@ -3069,8 +3069,10 @@ namespace MissionPlanner.GCSViews
             else
             {
                 // green
-                hud1.groundColor1 = Color.FromArgb(0x9b, 0xb8, 0x24);
-                hud1.groundColor2 = Color.FromArgb(0x41, 0x4f, 0x07);
+                //hud1.groundColor1 = Color.FromArgb(0x9b, 0xb8, 0x24);
+                //hud1.groundColor2 = Color.FromArgb(0x41, 0x4f, 0x07)
+                hud1.groundColor1 = ColorTranslator.FromHtml("#004b63");
+                hud1.groundColor2 = ColorTranslator.FromHtml("#006e84");
             }
 
             Settings.config["groundColorToolStripMenuItem"] = groundColorToolStripMenuItem.Checked.ToString();
@@ -4960,13 +4962,14 @@ namespace MissionPlanner.GCSViews
                 var QV = new QuickView()
                 {
                     Name = NameQuickView,
-                    numberColor = randomColorQuickView,
+                    numberColor = ColorTranslator.FromHtml("#00d2f5"),
                 };
                 if (!MainV2.DisplayConfiguration.lockQuickView)
                     QV.DoubleClick += quickView_DoubleClick;
                 QV.ContextMenuStrip = contextMenuStripQuickView;
                 QV.Dock = DockStyle.Fill;
-                QV.numberColorBackup = QV.numberColor;
+                //QV.numberColorBackup = QV.numberColor;
+                QV.numberColorBackup = ColorTranslator.FromHtml("#00d2f5");
                 QV.number = 0;
 
                 tableLayoutPanelQuick.Controls.Add(QV);

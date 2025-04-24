@@ -18,7 +18,7 @@ namespace MissionPlanner
 
             if (Program.Logo != null)
             {
-                pictureBox1.BackgroundImage = MissionPlanner.Properties.Resources.bgdark;
+                //pictureBox1.BackgroundImage = MissionPlanner.Properties.Resources.bgdark;
                 pictureBox1.Image = Program.Logo;
                 pictureBox1.Visible = true;
             }

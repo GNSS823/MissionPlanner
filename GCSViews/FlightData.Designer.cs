@@ -52,23 +52,23 @@ namespace MissionPlanner.GCSViews
             this.BUT_abortland = new MissionPlanner.Controls.MyButton();
             this.modifyandSetLoiterRad = new MissionPlanner.Controls.ModifyandSet();
             this.BUT_clear_track = new MissionPlanner.Controls.MyButton();
-            this.CMB_action = new System.Windows.Forms.ComboBox();
+            this.CMB_action = new MissionPlanner.Controls.MyCustomComboBox();
             this.BUTactiondo = new MissionPlanner.Controls.MyButton();
             this.BUT_resumemis = new MissionPlanner.Controls.MyButton();
             this.modifyandSetAlt = new MissionPlanner.Controls.ModifyandSet();
             this.modifyandSetSpeed = new MissionPlanner.Controls.ModifyandSet();
-            this.CMB_setwp = new System.Windows.Forms.ComboBox();
+            this.CMB_setwp = new MissionPlanner.Controls.MyCustomComboBox();
             this.BUT_ARM = new MissionPlanner.Controls.MyButton();
             this.BUT_mountmode = new MissionPlanner.Controls.MyButton();
             this.BUT_joystick = new MissionPlanner.Controls.MyButton();
             this.BUT_RAWSensor = new MissionPlanner.Controls.MyButton();
             this.BUT_Homealt = new MissionPlanner.Controls.MyButton();
             this.BUTrestartmission = new MissionPlanner.Controls.MyButton();
-            this.CMB_mountmode = new System.Windows.Forms.ComboBox();
+            this.CMB_mountmode = new MissionPlanner.Controls.MyCustomComboBox();
             this.BUT_quickrtl = new MissionPlanner.Controls.MyButton();
             this.BUT_quickmanual = new MissionPlanner.Controls.MyButton();
             this.BUT_setwp = new MissionPlanner.Controls.MyButton();
-            this.CMB_modes = new System.Windows.Forms.ComboBox();
+            this.CMB_modes = new MissionPlanner.Controls.MyCustomComboBox();
             this.BUT_quickauto = new MissionPlanner.Controls.MyButton();
             this.BUT_setmode = new MissionPlanner.Controls.MyButton();
             this.tabPagemessages = new System.Windows.Forms.TabPage();
@@ -301,16 +301,17 @@ namespace MissionPlanner.GCSViews
             // 
             this.MainH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.MainH, "MainH");
-            this.MainH.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.MainH.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.MainH.Name = "MainH";
+            this.MainH.SplitterDistance = (int)(this.MainH.Width * 0.7);
             // 
             // MainH.Panel1
             // 
-            this.MainH.Panel1.Controls.Add(this.SubMainLeft);
+            this.MainH.Panel1.Controls.Add(this.tableMap);
             // 
             // MainH.Panel2
             // 
-            this.MainH.Panel2.Controls.Add(this.tableMap);
+            this.MainH.Panel2.Controls.Add(this.SubMainLeft);
             // 
             // SubMainLeft
             // 
@@ -3065,23 +3066,23 @@ namespace MissionPlanner.GCSViews
         private Controls.MyButton BUT_abortland;
         private Controls.ModifyandSet modifyandSetLoiterRad;
         private Controls.MyButton BUT_clear_track;
-        private ComboBox CMB_action;
+        private MissionPlanner.Controls.MyCustomComboBox CMB_action;
         private Controls.MyButton BUTactiondo;
         private Controls.MyButton BUT_resumemis;
         private Controls.ModifyandSet modifyandSetAlt;
         private Controls.ModifyandSet modifyandSetSpeed;
-        private ComboBox CMB_setwp;
+        private MissionPlanner.Controls.MyCustomComboBox CMB_setwp;
         private Controls.MyButton BUT_ARM;
         private Controls.MyButton BUT_mountmode;
         private Controls.MyButton BUT_joystick;
         private Controls.MyButton BUT_RAWSensor;
         private Controls.MyButton BUT_Homealt;
         private Controls.MyButton BUTrestartmission;
-        private ComboBox CMB_mountmode;
+        private MissionPlanner.Controls.MyCustomComboBox CMB_mountmode;
         private Controls.MyButton BUT_quickrtl;
         private Controls.MyButton BUT_quickmanual;
         private Controls.MyButton BUT_setwp;
-        private ComboBox CMB_modes;
+        private MissionPlanner.Controls.MyCustomComboBox CMB_modes;
         private Controls.MyButton BUT_quickauto;
         private Controls.MyButton BUT_setmode;
         public TabPage tabPagemessages;

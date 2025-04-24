@@ -65,21 +65,27 @@ namespace MissionPlanner.Utilities
             terminalTheming = true;
             strThemeName = "BurntKermit.mpsystheme";
 
-            colors.Add("Background", Color.FromArgb(0x26, 0x27, 0x28), "BGColor");						// This changes the colour of the main menu background
+            colors.Add("Background", Color.FromArgb(0, 114, 148), "BGColor");						// This changes the colour of the main menu background
             colors.Add("Control Background", Color.FromArgb(0x43, 0x44, 0x45), "ControlBGColor");		// This changes the colour of the sub menu backgrounds
             colors.Add("Text", Color.White, "TextColor");										// This changes the colour of text
             colors.Add("TextBox Background", Color.FromArgb(0x43, 0x44, 0x45), "BGColorTextBox");		// This changes the colour of the background of textboxes
             colors.Add("Button Text", Color.FromArgb(64, 87, 4), "ButtonTextColor");				// This changes the colour of button text
-            colors.Add("Button Background top", Color.FromArgb(148, 193, 31), "ButBG");								// This changes the colour of button backgrounds (Top)
-            colors.Add("Button Background bottom", Color.FromArgb(205, 226, 150), "ButBGBot");						// This changes the colour of button backgrounds (Bot)
+            //colors.Add("Button Background top", Color.FromArgb(148, 193, 31), "ButBG");								// This changes the colour of button backgrounds (Top)
+            //colors.Add("Button Background bottom", Color.FromArgb(205, 226, 150), "ButBGBot");						// This changes the colour of button backgrounds (Bot)
+            colors.Add("Button Background top", Color.FromArgb(160, 214, 255), "ButBG");								// This changes the colour of button backgrounds (Top)
+            colors.Add("Button Background bottom", Color.FromArgb(125, 183, 255), "ButBGBot");						// This changes the colour of button backgrounds (Bot)
             colors.Add("ProgressBar Top", Color.FromArgb(102, 139, 26), "ProgressBarColorTop");	// These three variables change the colours of progress bars
             colors.Add("ProgressBar Bottom", Color.FromArgb(124, 164, 40), "ProgressBarColorBot");
             colors.Add("ProgressBar Outline", Color.FromArgb(150, 174, 112), "ProgressBarOutlineColor");
             colors.Add("BannerColor1", Color.FromArgb(0x40, 0x57, 0x04), "BannerColor1");			// These two variables change the colours of banners such as "planner" umder configuration
             colors.Add("BannerColor2", Color.FromArgb(0x94, 0xC1, 0x1F), "BannerColor2");
-            colors.Add("Disabled Button", Color.FromArgb(150, 43, 58, 3), "ColorNotEnabled");		// This changes the background color of buttons when not enabled
-            colors.Add("Button Mouseover", Color.FromArgb(73, 43, 58, 3), "ColorMouseOver");			// This changes the background color of buttons when the mouse is hovering over a button
-            colors.Add("Button Mousedown", Color.FromArgb(73, 43, 58, 3), "ColorMouseDown");			// This changes the background color of buttons when the mouse is clicked down on a button
+            //colors.Add("Disabled Button", Color.FromArgb(150, 43, 58, 3), "ColorNotEnabled");		// This changes the background color of buttons when not enabled
+            //colors.Add("Button Mouseover", Color.FromArgb(73, 43, 58, 3), "ColorMouseOver");			// This changes the background color of buttons when the mouse is hovering over a button
+            //colors.Add("Button Mousedown", Color.FromArgb(73, 43, 58, 3), "ColorMouseDown");			// This changes the background color of buttons when the mouse is clicked down on a button
+            // Base on the button color set up hover color
+            colors.Add("Disabled Button", Color.FromArgb(150, 0x43, 0x44, 0x45), "ColorNotEnabled");		// This changes the background color of buttons when not enabled
+            colors.Add("Button Mouseover", Color.FromArgb(73, 0x43, 0x44, 0x45), "ColorMouseOver");			// This changes the background color of buttons when the mouse is hovering over a button
+            colors.Add("Button Mousedown", Color.FromArgb(73, 0x43, 0x44, 0x45), "ColorMouseDown");			// This changes the background color of buttons when the mouse is clicked down on a button
             colors.Add("CurrentPPM Background", Color.Green, "CurrentPPMBackground");					// This changes the background colour of the current PPM setting in the flight modes tab
             colors.Add("Graph Chart Fill", Color.FromArgb(0x1F, 0x1F, 0x20), "ZedGraphChartFill"); 	// These three variables change the fill colours of Zed Graphs
             colors.Add("Graph Pane Fill", Color.FromArgb(0x37, 0x37, 0x38), "ZedGraphPaneFill");
@@ -970,7 +976,7 @@ mc:Ignorable=""d""
                 }
                 else if (ctl.GetType() == typeof(TabControl))
                 {
-                    ctl.BackColor = BGColor; //ControlBGColor
+                    ctl.BackColor = Color.FromArgb(0x00,0xd2,0xf5); //ControlBGColor
                     ctl.ForeColor = TextColor;
                     TabControl txtr = (TabControl)ctl;
                 }
@@ -1051,6 +1057,7 @@ mc:Ignorable=""d""
                     ((MyProgressBar)ctl).BGGradBot = ControlBGColor;
                     ((MyProgressBar)ctl).BGGradTop = BGColor;
                 }
+                //TODO add theme apply to custom combobox
 
                 if (ctl.Controls.Count > 0)
                     ApplyCustomTheme(ctl, 1);
@@ -1080,30 +1087,31 @@ mc:Ignorable=""d""
                     Color mix = Color.FromArgb(ThemeManager.BGColor.ToArgb() ^ 0xffffff);
 
                     Controls.QuickView but = (QuickView)ctl;
-                    if (but.Name == "quickView6")
-                    {
-                        but.numberColor = Color.FromArgb((0 + mix.R) / 2, (255 + mix.G) / 2, (252 + mix.B) / 2);
-                    }
-                    else if (but.Name == "quickView5")
-                    {
-                        but.numberColor = Color.FromArgb((254 + mix.R) / 2, (254 + mix.G) / 2, (86 + mix.B) / 2);
-                    }
-                    else if (but.Name == "quickView4")
-                    {
-                        but.numberColor = Color.FromArgb((0 + mix.R) / 2, (255 + mix.G) / 2, (83 + mix.B) / 2);
-                    }
-                    else if (but.Name == "quickView3")
-                    {
-                        but.numberColor = Color.FromArgb((255 + mix.R) / 2, (96 + mix.G) / 2, (91 + mix.B) / 2);
-                    }
-                    else if (but.Name == "quickView2")
-                    {
-                        but.numberColor = Color.FromArgb((254 + mix.R) / 2, (132 + mix.G) / 2, (46 + mix.B) / 2);
-                    }
-                    else if (but.Name == "quickView1")
-                    {
-                        but.numberColor = Color.FromArgb((209 + mix.R) / 2, (151 + mix.G) / 2, (248 + mix.B) / 2);
-                    }
+                    //if (but.Name == "quickView6")
+                    //{
+                    //    but.numberColor = Color.FromArgb((0 + mix.R) / 2, (255 + mix.G) / 2, (252 + mix.B) / 2);
+                    //}
+                    //else if (but.Name == "quickView5")
+                    //{
+                    //    but.numberColor = Color.FromArgb((254 + mix.R) / 2, (254 + mix.G) / 2, (86 + mix.B) / 2);
+                    //}
+                    //else if (but.Name == "quickView4")
+                    //{
+                    //    but.numberColor = Color.FromArgb((0 + mix.R) / 2, (255 + mix.G) / 2, (83 + mix.B) / 2);
+                    //}
+                    //else if (but.Name == "quickView3")
+                    //{
+                    //    but.numberColor = Color.FromArgb((255 + mix.R) / 2, (96 + mix.G) / 2, (91 + mix.B) / 2);
+                    //}
+                    //else if (but.Name == "quickView2")
+                    //{
+                    //    but.numberColor = Color.FromArgb((254 + mix.R) / 2, (132 + mix.G) / 2, (46 + mix.B) / 2);
+                    //}
+                    //else if (but.Name == "quickView1")
+                    //{
+                    //    but.numberColor = Color.FromArgb((209 + mix.R) / 2, (151 + mix.G) / 2, (248 + mix.B) / 2);
+                    //}
+                    but.numberColor = ColorTranslator.FromHtml("#00d2f5");
                     but.numberColorBackup = but.numberColor;
                     //return;  //return removed to process all quickView controls
                 }
@@ -1113,6 +1121,14 @@ mc:Ignorable=""d""
                     ctl.ForeColor = TextColor;
                     TreeView txtr = (TreeView)ctl;
                     txtr.LineColor = TextColor;
+                }
+                else if (ctl.GetType() == typeof(MyCustomComboBox))
+                {
+                    MyCustomComboBox cb = (MyCustomComboBox)ctl;
+                    cb.BackColor = ColorTranslator.FromHtml("#004b63");
+                    cb.BorderColor = ColorTranslator.FromHtml("#01570");
+                    cb.ButtonColor = ColorTranslator.FromHtml("#01570");
+                    cb.ForeColor = TextColor;
                 }
                 else if (ctl.GetType() == typeof(ListView))
                 {

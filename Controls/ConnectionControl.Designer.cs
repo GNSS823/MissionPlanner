@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConnectionControl));
-            this.cmb_Baud = new System.Windows.Forms.ComboBox();
-            this.cmb_Connection = new System.Windows.Forms.ComboBox();
+            this.cmb_Baud = new MyCustomComboBox();
+            this.cmb_Connection = new MyCustomComboBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.cmb_sysid = new System.Windows.Forms.ComboBox();
+            this.cmb_sysid = new MyCustomComboBox();
             this.SuspendLayout();
             // 
             // cmb_Baud
@@ -107,10 +107,9 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cmb_Baud;
-    
-        private System.Windows.Forms.ComboBox cmb_Connection;
+        private MyCustomComboBox cmb_Baud;
+        private MyCustomComboBox cmb_Connection;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        public System.Windows.Forms.ComboBox cmb_sysid;
+        public MyCustomComboBox cmb_sysid;
     }
 }

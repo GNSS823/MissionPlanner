@@ -80,10 +80,11 @@ namespace MissionPlanner.GCSViews
             this.panelWaypoints = new System.Windows.Forms.Panel();
             this.chk_usemavftp = new System.Windows.Forms.CheckBox();
             this.but_mincommands = new MissionPlanner.Controls.MyButton();
-            this.CMB_altmode = new System.Windows.Forms.ComboBox();
+            this.CMB_altmode = new MissionPlanner.Controls.MyCustomComboBox();
             this.CHK_splinedefault = new System.Windows.Forms.CheckBox();
             this.label17 = new System.Windows.Forms.Label();
             this.TXT_altwarn = new System.Windows.Forms.TextBox();
+            this.cmb_missiontype = new MissionPlanner.Controls.MyCustomComboBox();
             this.Commands = new MissionPlanner.Controls.MyDataGridView();
             this.Command = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Param1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -115,7 +116,7 @@ namespace MissionPlanner.GCSViews
             this.progressBarInjectCustomMap = new System.Windows.Forms.ProgressBar();
             this.BUT_InjectCustomMap = new MissionPlanner.Controls.MyButton();
             this.chk_grid = new System.Windows.Forms.CheckBox();
-            this.comboBoxMapType = new System.Windows.Forms.ComboBox();
+            this.comboBoxMapType = new MissionPlanner.Controls.MyCustomComboBox();
             this.lnk_kml = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_wpfile = new System.Windows.Forms.Label();
@@ -129,7 +130,6 @@ namespace MissionPlanner.GCSViews
             this.TRK_zoom = new MissionPlanner.Controls.MyTrackBar();
             this.label11 = new System.Windows.Forms.Label();
             this.lbl_distance = new System.Windows.Forms.Label();
-            this.cmb_missiontype = new System.Windows.Forms.ComboBox();
             this.MainMap = new MissionPlanner.Controls.myGMAP();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteWPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -450,8 +450,14 @@ namespace MissionPlanner.GCSViews
             // 
             // CMB_altmode
             // 
-            this.CMB_altmode.FormattingEnabled = true;
+            this.CMB_altmode.ArrowColor = System.Drawing.Color.White;
+            this.CMB_altmode.BackColor = System.Drawing.Color.White;
+            this.CMB_altmode.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.CMB_altmode.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.CMB_altmode.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.CMB_altmode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.CMB_altmode, "CMB_altmode");
+            this.CMB_altmode.FormattingEnabled = true;
             this.CMB_altmode.Name = "CMB_altmode";
             this.CMB_altmode.SelectedIndexChanged += new System.EventHandler(this.CMB_altmode_SelectedIndexChanged);
             // 
@@ -471,6 +477,19 @@ namespace MissionPlanner.GCSViews
             // 
             resources.ApplyResources(this.TXT_altwarn, "TXT_altwarn");
             this.TXT_altwarn.Name = "TXT_altwarn";
+            // 
+            // cmb_missiontype
+            // 
+            resources.ApplyResources(this.cmb_missiontype, "cmb_missiontype");
+            this.cmb_missiontype.ArrowColor = System.Drawing.Color.White;
+            this.cmb_missiontype.BackColor = System.Drawing.Color.White;
+            this.cmb_missiontype.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.cmb_missiontype.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.cmb_missiontype.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmb_missiontype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_missiontype.FormattingEnabled = true;
+            this.cmb_missiontype.Name = "cmb_missiontype";
+            this.cmb_missiontype.SelectedIndexChanged += new System.EventHandler(this.Cmb_missiontype_SelectedIndexChanged);
             // 
             // Commands
             // 
@@ -732,9 +751,14 @@ namespace MissionPlanner.GCSViews
             // 
             // comboBoxMapType
             // 
+            this.comboBoxMapType.ArrowColor = System.Drawing.Color.White;
+            this.comboBoxMapType.BackColor = System.Drawing.Color.White;
+            this.comboBoxMapType.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.comboBoxMapType.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.comboBoxMapType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboBoxMapType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxMapType.FormattingEnabled = true;
             resources.ApplyResources(this.comboBoxMapType, "comboBoxMapType");
+            this.comboBoxMapType.FormattingEnabled = true;
             this.comboBoxMapType.Name = "comboBoxMapType";
             this.toolTip1.SetToolTip(this.comboBoxMapType, resources.GetString("comboBoxMapType.ToolTip"));
             // 
@@ -855,13 +879,6 @@ namespace MissionPlanner.GCSViews
             // 
             resources.ApplyResources(this.lbl_distance, "lbl_distance");
             this.lbl_distance.Name = "lbl_distance";
-            // 
-            // cmb_missiontype
-            // 
-            resources.ApplyResources(this.cmb_missiontype, "cmb_missiontype");
-            this.cmb_missiontype.FormattingEnabled = true;
-            this.cmb_missiontype.Name = "cmb_missiontype";
-            this.cmb_missiontype.SelectedIndexChanged += new System.EventHandler(this.Cmb_missiontype_SelectedIndexChanged);
             // 
             // MainMap
             // 
@@ -1584,7 +1601,7 @@ namespace MissionPlanner.GCSViews
         public System.Windows.Forms.TextBox TXT_DefaultAlt;
         public System.Windows.Forms.TextBox TXT_loiterrad;
         public System.Windows.Forms.CheckBox CHK_splinedefault;
-        public System.Windows.Forms.ComboBox CMB_altmode;
+        public MyCustomComboBox CMB_altmode;
         public MyButton BUT_read;
         public MyButton BUT_write;
         public Panel panel5;
@@ -1638,7 +1655,7 @@ namespace MissionPlanner.GCSViews
         public ToolStripMenuItem rTLToolStripMenuItem;
         public ToolStripMenuItem landToolStripMenuItem;
         public ToolStripMenuItem takeoffToolStripMenuItem;
-        public ComboBox comboBoxMapType;
+        public MyCustomComboBox comboBoxMapType;
         public ToolStripMenuItem fileLoadSaveToolStripMenuItem;
         public ToolStripMenuItem loadWPFileToolStripMenuItem;
         public ToolStripMenuItem saveWPFileToolStripMenuItem;
@@ -1677,7 +1694,7 @@ namespace MissionPlanner.GCSViews
         public ToolStripMenuItem setHomeHereToolStripMenuItem;
         public ToolStripMenuItem currentPositionToolStripMenuItem;
         public MyButton but_writewpfast;
-        public ComboBox cmb_missiontype;
+        public MyCustomComboBox cmb_missiontype;
         public ContextMenuStrip contextMenuStripPoly;
         public ToolStripMenuItem drawAPolygonToolStripMenuItem;
         public ToolStripMenuItem fenceInclusionToolStripMenuItem;

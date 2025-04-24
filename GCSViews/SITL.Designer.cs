@@ -55,10 +55,10 @@ namespace MissionPlanner.GCSViews
             this.label8 = new System.Windows.Forms.Label();
             this.txt_cmdline = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmb_model = new System.Windows.Forms.ComboBox();
+            this.cmb_model = new MyCustomComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.num_simspeed = new System.Windows.Forms.NumericUpDown();
-            this.cmb_version = new System.Windows.Forms.ComboBox();
+            this.cmb_version = new MyCustomComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxheli)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxquad)).BeginInit();
@@ -398,7 +398,7 @@ namespace MissionPlanner.GCSViews
         private System.Windows.Forms.NumericUpDown NUM_heading;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmb_model;
+        private MyCustomComboBox cmb_model;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown num_simspeed;
         private System.Windows.Forms.Label label8;
@@ -408,6 +408,6 @@ namespace MissionPlanner.GCSViews
         private MyButton but_swarmlink;
         private MyButton but_swarmrover;
         private MyButton but_swarmplane;
-        private System.Windows.Forms.ComboBox cmb_version;
+        private MyCustomComboBox cmb_version;
     }
 }

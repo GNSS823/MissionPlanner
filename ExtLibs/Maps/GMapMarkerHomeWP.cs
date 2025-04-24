@@ -13,7 +13,7 @@ namespace MissionPlanner.Maps
     [Serializable]
     public class GMapMarkerHomeWP : GMarkerGoogle
     {
-        private static Bitmap icon = new Bitmap("C:\\Users\\sean1\\OneDrive\\桌面\\GitHub\\others\\MissionPlanner\\Resources\\images\\wp_startpoint.png");
+        private static Bitmap icon = Resources.wp_startpoint;
 
         public GMapMarkerHomeWP(PointLatLng pos) : base(pos, icon)
         {

@@ -16,7 +16,7 @@ namespace MissionPlanner.Maps
         SizeF txtsize = SizeF.Empty;
         static Dictionary<string, Bitmap> fontBitmaps = new Dictionary<string, Bitmap>();
         static Font font;
-        private static Bitmap icon = new Bitmap("C:\\Users\\sean1\\OneDrive\\桌面\\GitHub\\others\\MissionPlanner\\Resources\\images\\wp_waypoint.png");
+        private static Bitmap icon = Resources.wp_waypoint;
 
         public GMapMarkerWP(PointLatLng p, string wpno)
             : base(p, icon)
@@ -30,14 +30,24 @@ namespace MissionPlanner.Maps
 
             if (!fontBitmaps.ContainsKey(wpno))
             {
-                Bitmap temp = new Bitmap(100,40, PixelFormat.Format32bppArgb);
+                Bitmap temp = new Bitmap(icon.Width / 2, icon.Height / 2, PixelFormat.Format32bppArgb);
                 using (Graphics g = Graphics.FromImage(temp))
                 {
                     g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
                     g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+
+                    // Measure text size
                     txtsize = g.MeasureString(wpno, font);
 
-                    g.DrawString(wpno, font, Brushes.Black, new PointF(0, 0));
+                    // Set background color
+                    g.Clear(Color.White);
+
+                    // Calculate text position to center it
+                    float textX = (temp.Width - txtsize.Width) / 2;
+                    float textY = (temp.Height - txtsize.Height) / 2;
+
+                    // Draw the text
+                    g.DrawString(wpno, font, Brushes.Black, new PointF(textX, textY));
                 }
                 fontBitmaps[wpno] = temp;
             }
@@ -53,17 +63,12 @@ namespace MissionPlanner.Maps
             
             base.OnRender(g);
 
-            //var midw = LocalPosition.X + 10;
-            //var midh = LocalPosition.Y + 3;
-
-            var midw = LocalPosition.X + 10;
-            var midh = LocalPosition.Y - icon.Height / 2;
-
-            if (txtsize.Width > 15)
-                midw -= 4;
-
             if (Overlay.Control.Zoom> 16 || IsMouseOver)
+            {
+                var midw = LocalPosition.X + fontBitmaps[wpno].Width / 2;
+                var midh = LocalPosition.Y - icon.Height / 2;
                 g.DrawImageUnscaled(fontBitmaps[wpno], midw,midh);
+            }
         }
     }
 }
