@@ -1342,6 +1342,8 @@ mc:Ignorable=""d""
                 else if (ctl.GetType() == typeof(TrackBar))
                 {
                     ctl.BackColor = BGColor;
+                    // add alpha to backcolor
+                    ctl.BackColor = Color.FromArgb(50, ctl.BackColor.R, ctl.BackColor.G, ctl.BackColor.B);
                     ctl.ForeColor = TextColor;
                 }
                 else if (ctl.GetType() == typeof(LinkLabel))
