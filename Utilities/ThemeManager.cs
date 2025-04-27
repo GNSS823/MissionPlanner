@@ -1127,8 +1127,12 @@ mc:Ignorable=""d""
                     MyCustomComboBox cb = (MyCustomComboBox)ctl;
                     cb.BackColor = ColorTranslator.FromHtml("#004b63");
                     cb.BorderColor = ColorTranslator.FromHtml("#01570");
-                    cb.ButtonColor = ColorTranslator.FromHtml("#01570");
+                    cb.ArrowColor = ColorTranslator.FromHtml("#FFFFFF");
                     cb.ForeColor = TextColor;
+                    cb.BGGradBot = ColorTranslator.FromHtml("#64bce4");
+                    cb.BGGradTop = ColorTranslator.FromHtml("#048fc6");
+                    cb.ButtonGradBot = ColorTranslator.FromHtml("#048fc6");
+                    cb.ButtonGradTop = ColorTranslator.FromHtml("#64bce4");
                 }
                 else if (ctl.GetType() == typeof(ListView))
                 {
