@@ -450,10 +450,11 @@ namespace MissionPlanner.GCSViews
             // 
             // CMB_altmode
             // 
-            this.CMB_altmode.ArrowColor = System.Drawing.Color.White;
             this.CMB_altmode.BackColor = System.Drawing.Color.White;
-            this.CMB_altmode.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.CMB_altmode.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.CMB_altmode.BGGradBot = System.Drawing.Color.Empty;
+            this.CMB_altmode.BGGradTop = System.Drawing.Color.Empty;
+            this.CMB_altmode.ButtonGradBot = System.Drawing.Color.Empty;
+            this.CMB_altmode.ButtonGradTop = System.Drawing.Color.Empty;
             this.CMB_altmode.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.CMB_altmode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.CMB_altmode, "CMB_altmode");
@@ -481,10 +482,11 @@ namespace MissionPlanner.GCSViews
             // cmb_missiontype
             // 
             resources.ApplyResources(this.cmb_missiontype, "cmb_missiontype");
-            this.cmb_missiontype.ArrowColor = System.Drawing.Color.White;
             this.cmb_missiontype.BackColor = System.Drawing.Color.White;
-            this.cmb_missiontype.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.cmb_missiontype.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.cmb_missiontype.BGGradBot = System.Drawing.Color.Empty;
+            this.cmb_missiontype.BGGradTop = System.Drawing.Color.Empty;
+            this.cmb_missiontype.ButtonGradBot = System.Drawing.Color.Empty;
+            this.cmb_missiontype.ButtonGradTop = System.Drawing.Color.Empty;
             this.cmb_missiontype.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmb_missiontype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_missiontype.FormattingEnabled = true;
@@ -751,10 +753,11 @@ namespace MissionPlanner.GCSViews
             // 
             // comboBoxMapType
             // 
-            this.comboBoxMapType.ArrowColor = System.Drawing.Color.White;
             this.comboBoxMapType.BackColor = System.Drawing.Color.White;
-            this.comboBoxMapType.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.comboBoxMapType.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.comboBoxMapType.BGGradBot = System.Drawing.Color.Empty;
+            this.comboBoxMapType.BGGradTop = System.Drawing.Color.Empty;
+            this.comboBoxMapType.ButtonGradBot = System.Drawing.Color.Empty;
+            this.comboBoxMapType.ButtonGradTop = System.Drawing.Color.Empty;
             this.comboBoxMapType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboBoxMapType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.comboBoxMapType, "comboBoxMapType");

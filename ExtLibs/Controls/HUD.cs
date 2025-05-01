@@ -31,9 +31,9 @@ using SkiaSharp;
 
 namespace MissionPlanner.Controls
 {
-    public class HUD2 : HUD
+    public class graphicsObject : HUD
     {
-        public HUD2() : base()
+        public graphicsObject() : base()
         {
             started = true;
             opengl = false;
@@ -108,12 +108,13 @@ namespace MissionPlanner.Controls
         {
             this.SuspendLayout();
             // 
-            // HUD2
+            // graphicsObject
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.hudcolor = System.Drawing.Color.LightGray;
-            this.Name = "HUD2";
-            this.Size = new System.Drawing.Size(466, 354);
+            this.Margin = new System.Windows.Forms.Padding(13, 11, 13, 11);
+            this.Name = "graphicsObject";
+            this.Size = new System.Drawing.Size(1010, 654);
             this.VSync = false;
             this.ResumeLayout(false);
 
@@ -2849,10 +2850,15 @@ namespace MissionPlanner.Controls
                         textcolor = _whiteBrush;
                         if (displayicons)
                         {
-                            if (_batteryremaining > 75) icon = HUDT.batt_4;
-                            else if (_batteryremaining > 50) icon = HUDT.batt_3;
-                            else if (_batteryremaining > 25) icon = HUDT.batt_2;
-                            else icon = HUDT.batt_1;
+                            //if (_batteryremaining > 75) icon = HUDT.batt_4;
+                            //else if (_batteryremaining > 50) icon = HUDT.batt_3;
+                            //else if (_batteryremaining > 25) icon = HUDT.batt_2;
+                            //else icon = HUDT.batt_1;
+                            if (_batteryremaining > 80) icon = HUDT.ico_hud_power100;
+                            else if (_batteryremaining > 60) icon = HUDT.ico_hud_power80;
+                            else if (_batteryremaining > 40) icon = HUDT.ico_hud_power60;
+                            else if (_batteryremaining > 20) icon = HUDT.ico_hud_power40;
+                            else icon = HUDT.ico_hud_power20;
                         }
                     }
 
